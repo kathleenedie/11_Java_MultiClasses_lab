@@ -26,4 +26,21 @@ public class PrinterTest {
     public void checkPrintDoesNotRunIfEnoughPaper(){
         assertEquals(-1, printer.print(50, 5));
     }
+
+    @Test
+    public void hasTonerVolume(){
+        assertEquals(1000, printer.getTonerVolume());
+    }
+
+    @Test
+    public void checkTonerVolumeReducesIfPrints(){
+        assertEquals(900, printer.printTonerVolume(5,20));
+    }
+
+    @Test
+    public void checkTonerVolumeIfDoesNotPrint(){
+        assertEquals(-1, printer.printTonerVolume(20,100));
+    }
+
+
 }
